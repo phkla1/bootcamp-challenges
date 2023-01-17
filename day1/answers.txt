@@ -1,0 +1,30 @@
+Current memory capacity of a canister is 48GB
+
+
+Code sample:
+actor {
+  let counter : Nat = 0;
+  public func increment_counter() : async () {
+    counter := counter + 1;
+  };
+}
+The problem with the above is that counter is not mutable.
+
+
+Code sample:
+actor {
+  var message : Text = 0;
+
+  public query func change_message(new_message : Text) : async () {
+    message := new_message;
+    return;
+  };
+  
+  public query func see_message() : async Text {
+    return(message);
+  };
+}
+The problem with the above is that message is wrongly declared (need doublequotes).
+
+
+False. We cannot remove the async keyword in the case of a query function.
