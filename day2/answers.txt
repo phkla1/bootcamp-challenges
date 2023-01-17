@@ -1,0 +1,47 @@
+The ledger canister is controlled by the governance canister.
+
+
+The subnet of canister mwrha-maaaa-aaaab-qabqq-cai (the motoko playground canister!) is pae4o-o6dxf-xki7q-ezclx-znyd6-fnk6w-vkv5z-5lfwh-xym2i-otrrw-fqe and it has 16 nodes running on it.
+
+
+neuron with 1O ICPs locked with a dissolve delay of 4 years - neuron has been locked for 2 years.
+Voting power is (10 * 1.5) * 1.125 = 168.75
+
+
+Code sample:
+actor {
+  let n : Nat = 50;
+  let t : Text = "Hello";
+
+  public func convert_to_text(m : Nat) : async Text {
+    Nat.toText(m);
+  };
+ 
+}
+The Nat module has not been imported.
+
+
+Code sample:
+actor {
+  var languages : [var Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+  public func show_languages(language : Text) : async [var Text] {
+    return (languages);
+  };
+ 
+}
+The array definition should be [var "English", "German"...etc].
+We can't return [var Text] because that would be exposing mutable data.
+
+
+Code sample:
+actor {
+  var languages : [Text] = ["English", "German", "Chinese", "Japanese", "French"];
+
+  public func add_language(new_language: Text) : async [Text] {
+    languages := Array.append<Text>(languages, [new_language]);
+    return (languages);
+  };
+ 
+}
+The Array module has not been imported.
